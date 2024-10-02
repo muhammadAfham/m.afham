@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Add To Cart</h2>
+    <div id="userDetails">
+        <!-- User details will be displayed here -->
+    </div>
+    <script>
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("Password").value;
+        const name = document.getElementById("Name").value;
+        const number = document.getElementById("number").value;
+        if (email && password && name && number) {
+            document.getElementById("userDetails").innerHTML = `
+        <p>Name:${email}</p>
+        <p>Name:${password}</p>
+        <p>Name:${name}</p>
+        <p>Name:${number}</p>
+        
+        `;
+        } else {
+            document.getElementById("userDetails").innerHTML = "<p>No user details found. please sign up first.</p>"
+        }
+    </script>
+</body>
+
+</html>

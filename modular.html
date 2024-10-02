@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .heading {
+      color: cadetblue;
+      background-color: rgb(46, 44, 41);
+      display: flex;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+
+    .offcanvas-body {
+      background-color: lightslategrey;
+    }
+
+    .card {
+      background-color: royalblue;
+    }
+
+    .card2 {
+      background-color: yellow;
+    }
+
+    .parent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .simple-bar-chart {
+      --line-count: 10;
+      --line-color: currentcolor;
+      --line-opacity: 0.25;
+      --item-gap: 2%;
+      --item-default-color: #060606;
+
+      height: 10rem;
+      display: grid;
+      grid-auto-flow: column;
+      gap: var(--item-gap);
+      align-items: end;
+      padding-inline: var(--item-gap);
+      --padding-block: 1.5rem;
+      /*space for labels*/
+      padding-block: var(--padding-block);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .simple-bar-chart::after {
+      content: "";
+      position: absolute;
+      inset: var(--padding-block) 0;
+      z-index: -1;
+      --line-width: 1px;
+      --line-spacing: calc(100% / var(--line-count));
+      background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing));
+      box-shadow: 0 var(--line-width) 0 var(--line-color);
+      opacity: var(--line-opacity);
+    }
+
+    .simple-bar-chart>.item {
+      height: calc(1% * var(--val));
+      background-color: var(--clr, var(--item-default-color));
+      position: relative;
+      animation: item-height 1s ease forwards
+    }
+
+    @keyframes item-height {
+      from {
+        height: 0
+      }
+    }
+
+    .simple-bar-chart>.item>* {
+      position: absolute;
+      text-align: center
+    }
+
+    .simple-bar-chart>.item>.label {
+      inset: 100% 0 auto 0
+    }
+
+    .simple-bar-chart>.item>.value {
+      inset: auto 0 100% 0
+    }
+
+    /* demo */
+    body {
+      margin: 0;
+      padding: 2rem;
+      color: #1D1E22;
+      background-color: #f0f0f0;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1D1E22;
+        color: #f0f0f0;
+      }
+    }
+
+    @property --p {
+      syntax: '<number>';
+      inherits: true;
+      initial-value: 0;
+    }
+
+    .pie {
+      --p: 20;
+      --b: 22px;
+      --c: darkred;
+      --w: 150px;
+
+      width: var(--w);
+      aspect-ratio: 1;
+      position: relative;
+      display: inline-grid;
+      margin: 5px;
+      place-content: center;
+      font-size: 25px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+
+    .pie:before,
+    .pie:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .pie:before {
+      inset: 0;
+      background:
+        radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat,
+        conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+      -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+      mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+    }
+
+    .pie:after {
+      inset: calc(50% - var(--b)/2);
+      background: var(--c);
+      transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+    }
+
+    .animate {
+      animation: p 1s .5s both;
+    }
+
+    .no-round:before {
+      background-size: 0 0, auto;
+    }
+
+    .no-round:after {
+      content: none;
+    }
+
+    @keyframes p {
+      from {
+        --p: 0
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="col-12 col-md-6 col-lg-4 col-xl-12">
+    <div class="heading ">
+      <h2>Start Bookstrap</h2>
+      SEARCH: <input type="text">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+        aria-controls="staticBackdrop">
+        ...
+      </button>
+
+    </div>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+      aria-labelledby="staticBackdropLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="staticBackdropLabel">BootStarp</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          <h5 style="color: darkgray;">CORE</h5>
+          <h3>Dashboard</h3>
+          <h5 style="color: darkgray;">INTERFACE</h5>
+          <h5 style="color: darkgray;">Layout</h5>
+          <h5 style="color: darkgray;">Pages</h5>
+          <h5 style="color: darkgray;">ADDONS</h5>
+          <h5 style="color: darkgray;">Charts</h5>
+          <h5 style="color: darkgray;">Tables</h5>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1>DASHBOARD</h1>
+      <h5 style="background-color: dimgray;">Dashboard</h5>
+    </div>
+    <div class="parent">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">primary card</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Detailes</h6>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; background-color:rgb(217, 255, 0)">
+        <div class="card-body">
+          <h5 class="card-title">warning card</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Detailes</h6>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;background-color:rgb(1, 255, 22) ">
+        <div class="card-body">
+          <h5 class="card-title">success card</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Detailes</h6>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;background-color:rgb(255, 1, 1) ">
+        <div class="card-body">
+          <h5 class="card-title">danger card</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">View Detailes</h6>
+        </div>
+      </div>
+    </div>
+    <div class="parent2">
+      <h4 style="background-color: gray;">AREA CHART EXAMPLE</h4>
+      <div class="simple-bar-chart">
+
+        <div class="item" style="--clr: #5EB344; --val: 80">
+          <div class="label">MARCH 1</div>
+          <div class="value">80%</div>
+        </div>
+
+        <div class="item" style="--clr: #FCB72A; --val: 50">
+          <div class="label">MARCH 2</div>
+          <div class="value">50%</div>
+        </div>
+
+        <div class="item" style="--clr: #F8821A; --val: 100">
+          <div class="label">MARCH 3</div>
+          <div class="value">100%</div>
+        </div>
+
+        <div class="item" style="--clr: #E0393E; --val: 15">
+          <div class="label">MARCH 4</div>
+          <div class="value">15%</div>
+        </div>
+
+        <div class="item" style="--clr: #963D97; --val: 1">
+          <div class="label">MARCH 5</div>
+          <div class="value">1%</div>
+        </div>
+
+        <div class="item" style="--clr: #069CDB; --val: 90">
+          <div class="label">MARCH 6</div>
+          <div class="value">90%</div>
+        </div>
+      </div>
+      <!-- 1st ends -->
+      <!-- 2nd starts -->
+      <hr>
+      <div>
+        <div class="pie" style="--p:20"> 20%</div>
+        <div class="pie" style="--p:40;--c:darkblue;--b:10px"> 40%</div>
+        <div class="pie no-round" style="--p:60;--c:purple;--b:15px"> 60%</div>
+        <div class="pie animate no-round" style="--p:80;--c:orange;"> 80%</div>
+        <div class="pie animate" style="--p:90;--c:lightgreen"> 90%</div>
+      </div>
+
+    </div>
+    <div class="tables">
+      <table class="table">
+        <h4 style="background-color: gray;">TABLE DATA EXAMPLES </h4>
+        SHOW <input placeholder="number 5" type="1"> ENTERIES
+        SEARCH: <input type="text">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+            <td>@rat</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Jon</td>
+            <td>@twitter</td>
+            <td>@Jon</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Alzebet</td>
+            <td>@twitter</td>
+            <td>@hat</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+
+</html>

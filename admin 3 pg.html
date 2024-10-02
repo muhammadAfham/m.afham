@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .first {
+            display: flex;
+            justify-content: right;
+            margin-bottom: 30px;
+        }
+
+        .tt {
+            margin-left: 600px;
+            margin-top: -200px;
+        }
+
+        .ty {
+            margin-left: 1100px;
+            margin-top: -200px;
+        }
+
+        .table{
+            width: 700px;
+            height: 300px;
+        }
+    </style>
+    <input style="width: 500px" placeholder="Search Items" type="text"> <svg xmlns="http://www.w3.org/2000/svg"
+        width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+    </svg>
+    <div class="first">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon-stars-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+            <path
+                d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+        </svg>
+        <p>English</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+            viewBox="0 0 16 16">
+            <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+    </div>
+    <h1>Order Detail</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar"
+        viewBox="0 0 16 16">
+        <path
+            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+    </svg>
+    <h6>Wed,Aug 13,2020,4:34pm</h6>
+    <P style="color: grey;">Order Id: 3453012</P>
+    </div>
+    <hr>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="blue" class="bi bi-person-circle"
+            viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path fill-rule="evenodd"
+                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        Customer
+        <div style="margin-left: 45px;">
+            <p>John Alexander</p>
+            <p>alex@example.com</p>
+            <p>+998 99 22123456</p>
+            <p style="color: dodgerblue;"><u>View profile</u></p>
+        </div>
+        <!-- 2 -->
+        <div class="tt">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="blue" class="bi bi-truck"
+                viewBox="0 0 16 16">
+                <path
+                    d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2" />
+            </svg>
+
+            Order info
+            <div style="margin-left: 45px;">
+                <p>Shipping: Fargo express</p>
+                <p>Pay method: card</ <p>
+                <p>Status:new</p>
+                <p style="color: dodgerblue;"><u>Download info</u></p>
+            </div>
+
+        </div>
+        <div class="ty">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="blue" class="bi bi-geo-alt-fill"
+                viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+            </svg>
+            Deliver to
+            <div style="margin-left: 45px;">
+                <p>City:Tashkent, uzbekistan</p>
+                <p>Block A, House 123, Floor 2</p>
+                <p>Po Box 10000</p>
+                <p style="color: dodgerblue;"><u>View profile</u></p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <table class="table">
+                <thead>
+                    <hr>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Unit price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><img src="">T-shirt red, XXL size </th>
+                        <td>$44.25</td>
+                        <td>2</td>
+                        <td>$99.50</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="">Winter jacket for men</th>
+                        <td>$7.50</td>
+                        <td>2</td>
+                        <td>$15.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="">Jeans wear for men</th>
+                        <td>$43.50</td>
+                        <td>2</td>
+                        <td>$102.04</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="">Product name color and size</th>
+                        <td>$99.00</td>
+                        <td>3</td>
+                        <td>$297.00</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="tu">
+                <h5><b>Payment info</b></h5>
+                <p><img src="">Master Card **** **** 4768</p>
+                <p>business name:Grand Market LLC</p>
+                <p>Phone:+1(800)555-154-52</p>
+            </div>
+            <br>
+           
+        </div>
+        <div style="margin-left: 970px; margin-top:-150px">
+            <p>Notes</p>
+            <input style="height: 50px; width:300px" placeholder="Type some note" type="text">
+            <br><br>
+            <button style="color: rgb(255, 255, 255); background-color: rgb(3, 63, 122); margin: top -10px;">Save note</button>
+        </div>
+        
+        
+</body>
+
+</html>
